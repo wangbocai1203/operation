@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汽车牌摇号</title>
+    <style>
+        .licensePlate {
+            box-sizing: border-box;
+            padding: 0 10px;
+            width: 300px;
+            height: 40px;
+            line-height: 40px;
+            background: #91e5eb;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p class="licensePlate"></p>
+        <button class="shakeBtn">摇号</button>
+    </div>
+    <script>
+        let licensePlate = document.querySelector('.licensePlate'),
+            shakeBtn = document.querySelector('.shakeBtn');
+        let count = 0;
+        shakeBtn.onclick = function () {
+            count++;
+            if (count >= 4) {
+                alert('只能摇三次，次数已到，下次再来！！！！');
+                return;
+            }
+            let result = '京',
+                area1 = 'ABCEFGHJK',
+                area2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                area3 = '0123456789';
+            result += area1.charAt(Math.round(Math.random() * 8));
+            for (let i = 1; i <= 5; i++) {
+                if (i <= 2) {
+                    result += area2.charAt(Math.round(Math.random() * 25));
+                }
+                if (i <= 3) {
+                    result += area3.charAt(Math.round(Math.random() * 9));
+                }
+            }
+            licensePlate.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
