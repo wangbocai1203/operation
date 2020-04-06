@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 数组有一个slice方法 arr.slice(n,m) 可以从索引n开始，找到索引为m处（不包含m），找到的以新数组返回
+        特殊情况：
+        1、n/m只传递一个值或者都不传递
+            如果只传递一个值就从这个值开始找到最后一个值，并返回一个新的数组
+            如果一个值都不传递，就为空，并返回原来数组
+        2、n/m是负数
+            如果n或m是负数，就为空，并返回原来数组
+            如果n和m都是负数，也为空，也返回原来数组
+        3、n/m是小数
+            如果n或m是小数，就四舍五入为整数，从整数位置开始查找，到整数的位置，并返回一个新的数
+            如果n和m都是小数，就都四舍五入为整数，从整数位置开始查找，到整数的位置，并返回一个新的数
+        4、n/m是非有效数字
+            如果n或m是非有效数字，就为空，并返回原来数组
+            如果n和m都非有效数字，也为空，也返回原来数组
+        5、n/m的大小超过最大长度
+            如果n或m的大小超过最大长度，就进行循环--，直到n或m小于arr.length,并返回一个新的数组
+            如果n和m的大小都超过最大长度，就为空，并返回原数组
+        6、如果m<=n咋办
+            如果m<=n,m将循环进行m++，直到m>n，再开始从你开始查找，到m结束（不包含m）并返回一个新的数组*/
+        let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90,]
+        Array.prototype.mySlice = function mySlice(n, m) {
+            let Arr = [];
+            if (n === undefined) {
+                n = arr.length;
+            } else if (m === undefined) {
+                m = arr.length;
+            } else if (n === undefined, m === undefined) {
+                return [];
+            }
+            if (n < 0) {
+                return [];
+            } else if (m < 0) {
+                return [];
+            } else if (n < 0, m < 0) {
+                return [];
+            };
+            if (n == Math.floor) {
+                parseInt(Math.floor(n))
+            } else if (m == Math.floor) {
+                parseInt(Math.floor(m))
+            };
+            if (!isNaN(n)) {
+                return [];
+            } else if (!isNaN(m)) {
+                return [];
+            }
+            if (n > arr.length) {
+                for (var n = n; n < arr.length; n--);
+            } else if (m > arr.length) {
+                for (var m = m; m < arr.length; m--);
+            } else if (n > arr.length, m > arr.length) {
+                return [];
+            };
+
+            if (m <= n) {
+                for (var m = m; m > n; m++);
+            };
+        };      
+        console.log(arr.mySlice(3,7))
+    </script>
+</body>
+
+</html>

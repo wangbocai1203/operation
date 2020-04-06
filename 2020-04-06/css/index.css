@@ -1,0 +1,50 @@
+.navbar{
+    width: 900px;
+    height: 40px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+.navbar a{
+    float: left;
+    line-height: 40px;
+    margin-right: 20px;
+    font-size: 20px;
+    color: #000;
+}
+.navbar .collapse li a{
+    font-size: 16px;
+    color: rgb(119, 119, 119);
+}
+.navbar .collapse li a:hover{
+    color: #000;
+}
+.productBox{
+    width: 900px;
+    margin: 0 auto;
+}
+.productBox .card{
+    box-sizing: border-box;
+    float: left;
+    width: 170px;
+    height: 320px;
+    margin: 5px;
+    border: 1px solid rgb(206, 206, 206);
+}
+.productBox .card img{
+    width: 100%;
+}
+.productBox .card .card-body{
+    width: 130px;
+    height: 140px;
+    padding: 20px;
+}
+.productBox .card .card-body h5{
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.productBox .card .card-body p{
+    font-size: 15px;
+    line-height: 30px;
+}
