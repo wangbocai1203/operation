@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+	<!-- IMPORT CSS -->
+	<link rel="stylesheet" href="css/reset.min.css">
+	<style>
+		.tabBox {
+			margin: 20px auto;
+			width: 500px;
+		}
+
+		.tabBox .tab {
+			position: relative;
+			top: 1px;
+		}
+
+		.tabBox .tab li {
+			float: left;
+			margin-right: 10px;
+			padding: 0 10px;
+			height: 35px;
+			line-height: 35px;
+			font-size: 14px;
+			border: 1px solid #AAA;
+			background: #f6f7fb;
+			cursor: pointer;
+		}
+
+		.tabBox .tab li.active {
+			background: #FFF;
+			border-bottom-color: #FFF;
+		}
+
+		.tabBox div {
+			display: none;
+			padding: 10px;
+			height: 100px;
+			border: 1px solid #AAA;
+			background: #FFF;
+		}
+
+		.tabBox div.active {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 想让哪一个LI页卡和DIV内容显示选中状态，就让其具备active样式类（常规样式都是不选中的，默认给第一个LI和DIV设置active，默认只有第一个选中）-->
+	<div class="tabBox" id="tabBox">
+		<!-- 页卡 -->
+		<ul class="tab clearfix">
+			<li class="active">编程</li>
+			<li>读书</li>
+			<li>运动</li>
+		</ul>
+		<!-- 页卡对应的内容（有几个页卡，对应几个内容） -->
+		<div class="active">编程可以使我“赚取高薪”</div>
+		<div>读书可以使我“修身养性”</div>
+		<div>运动可以使我“身体健康”</div>
+	</div>
+
+	<!-- IMPORT JS -->
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		// $(function () {
+		// 	let $tabBox = $('#tobBox'),
+		// 		$navList = $tabBox.find('#navBox>li'),
+		// 		$divList = $tabBox.children('div');
+		// 	$navList.on('click', function () {
+		// 		let n =$(this).index();
+		// 		$(this).addClass('active').siblings().removeClass('active');
+		// 		$divList.eq(n).addClass('active').siblings().removeClass('active');
+		// 	});
+		// });
+	</script>
+	<script>
+		$('.tabBox>.tab>li').click(function () {
+			let n = $(this).index();
+			$(this).addClass('active')
+			.siblings().removeClass('active')
+			.parent()
+			.nextAll('div').eq(n).addClass('active')
+			.siblings().removeClass('active');
+		});
+	</script>
+</body>
+
+</html>

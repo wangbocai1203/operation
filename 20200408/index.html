@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>珠峰培训 - 微信：18310612838</title>
+    <!-- IMPORT CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .container {
+            padding: 0;
+            width: 300px;
+        }
+
+        .form-text {
+            color: lightcoral !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label>真实姓名</label>
+            <input type="text" class="form-control" id="userNameInp">
+            <small class="form-text text-muted" id="userNameTip"></small>
+        </div>
+        <div class="form-group">
+            <label>邮箱</label>
+            <input type="text" class="form-control" id="userEmailInp" placeholder="请输入常用邮箱">
+            <small class="form-text text-muted" id="userEmailTip"></small>
+        </div>
+        <div class="form-group">
+            <label>电话</label>
+            <input type="text" class="form-control" id="userPhoneInp" placeholder="请输入常用手机号">
+            <small class="form-text text-muted" id="userPhoneTip"></small>
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input type="password" class="form-control" id="userPassInp" placeholder="6~16位，同时包含大小写字母和数字">
+            <small class="form-text text-muted" id="userPassTip"></small>
+        </div>
+        <div class="form-group">
+            <label>确认密码</label>
+            <input type="password" class="form-control" id="userPassConfirmInp">
+            <small class="form-text text-muted" id="userPassConfirmTip"></small>
+        </div>
+        <button type="button" class="btn btn-primary" id="submit">提交</button>
+    </div>
+
+    <!-- IMPORT JS -->
+    <script>
+        function query(selector) {
+            return document.querySelector(selector);
+        };
+        let formModule = (function () {
+            let userNameInp = query('#userNameInp'),
+                userNameTip = query('#userNameTip'),
+                userEmailInp = query('#userEmailInp'),
+                userEmailTip = query('#userEmailTip'),
+                userPassConfirmInp = query('#userPassConfirmInp'),
+                userPassConfirmTip = query('#userPassConfirmTip'),
+                userPassInp = query('#userPassInp'),
+                userPassTip = query('#userPassTip'),
+                userPassConfirmInp = query('#serPassConfirmInp'),
+                userPassConfirmTip = query('#userPassConfirmTip'),
+                submit = query('#submit');
+
+            function checkName() {
+                let val = userNameInp.value.trim(),
+                    reg= /^[\u4E00-\u9FA5]{2,10}(·[\u4E00-\u9FA5]{2,10}){0,2}$/;
+                    if(val.length===0){
+                        userNameTip.innerHTML='真实姓名为必填，请您填写！';
+                        return false;
+                    }
+                    if(!reg.test(val)){
+                        userNameTip.innerHTML = '姓名格式不合法，请正确输入！';
+                        return false;
+                    }
+                    userNameTip.innerHTML='';
+                    return true;
+            }
+
+            return {
+                init() {
+                    userNameInp.onblur = checkName;
+                }
+            }
+
+        })();
+    </script>
+</body>
+
+</html>
